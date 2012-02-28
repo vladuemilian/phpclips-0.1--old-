@@ -1,0 +1,88 @@
+
+
+.settings-box{
+	width:600px;
+	
+}
+
+
+.settings-box ul{
+	width:600px;
+	height:30px;
+	
+}
+
+.rowbox{
+	border-bottom:1px solid #cccccc;
+	height:30px;
+	margin-top:10px;
+	width:600px;
+}
+
+.settings-box li{
+	list-style:none;
+	font-weight:bold;
+	float:left;
+	
+}
+
+
+.data-field{
+	
+}
+
+.edit-wrapper-box{
+	width:560px;
+	background-color:#dde3ec;
+	padding:20px;
+	margin-bottom:30px;
+	padding-bottom:50px;
+}
+
+
+.edit-wrapper-box span.field-left{
+	width:170px;
+	float:left;
+}
+
+.edit-wrapper-box span.field-right{
+	width:130px;
+	float:left;
+}
+
+.edit-wrapper-box span.data-field{
+	font-weight:bold;
+	width:200px;
+	float:left;
+}
+
+.edit-wrapper-box li{
+	height:50px;
+	width:560px;
+}
+
+
+.settings-box span.button{
+	float:right;
+	margin-right:25px;
+}
+
+.settings-box span.data-field{
+	font-weight:bold;
+	width:200px;
+	float:left;
+}
+
+.settings-box span.data-content{
+	width:200px;
+	float:left;
+	font-weight:normal;
+	color:#5f5e5e;
+}
+
+.account-change-wrapper{
+	width:600px;
+	float:right;
+}
+
+

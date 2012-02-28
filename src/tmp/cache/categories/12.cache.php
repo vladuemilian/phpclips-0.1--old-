@@ -1,0 +1,1 @@
+a:1:{s:7:"current";a:4:{s:2:"ID";s:2:"12";s:6:"parent";s:1:"0";s:5:"title";s:15:"News & Politics";s:4:"slug";s:17:"news-and-politics";}}

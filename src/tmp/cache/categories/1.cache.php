@@ -1,0 +1,1 @@
+a:2:{s:7:"current";a:4:{s:2:"ID";s:1:"1";s:6:"parent";s:1:"0";s:5:"title";s:6:"Gaming";s:4:"slug";s:6:"gaming";}s:7:"subcats";a:1:{i:0;a:4:{s:2:"ID";s:2:"15";s:6:"parent";s:1:"1";s:5:"title";s:8:"Strategy";s:4:"slug";s:8:"strategy";}}}
