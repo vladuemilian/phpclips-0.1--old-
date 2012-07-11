@@ -16,9 +16,18 @@ PHPClips project
  * A page with community
 	* A page with users randomly listed ( or latest registered users )
 	* A page with latest playlists
+ 	
+ * A page with videos
+ 	* Users which browse this page will see videos suggest by:
+ 		* subscribed channels
+ 		* tags - if a user search for "music", so the videos will be filter by this tag
+ 		* latest browsed categories		
  
  * Users can register
  * Users can login
+ 	* Each user has a channel
+ 		* In the channel will be displayed all videos uploaded by user
+ 		* #MORE
  	* A user can add a video to favorite
   	* A user can create playlists
   	* Playlists can be:
@@ -33,6 +42,24 @@ PHPClips project
   			* #TODO: other web sites
   		* local from personal computer
   	* A user can rate videos
+  	* A user can change personal details
+  		* password
+  	* Users can be administrators - access to the backend of the web site (/admin)
+  	
+  * Channels 
+  	* Users can subscribe to others channels
+  	* Subscribed channels videos will appear firstly in /videos 	
+  	
+  * Administrator Panel features
+  	* Admins can manage users
+  		* Fully access to edit details
+  		* Suspend, delete and lock a user
+  	* Admins can delete videos
+  	* Admins can manage categories:
+  		* delete
+  		* add
+  		* edit
+  	* Admins can clear cache			
  
  
  
@@ -42,3 +69,4 @@ PHPClips project
  ==========
  
  #TODO - things to do in next releases
+ #MORE - there are miss some things that's will be needed in current release
