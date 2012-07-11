@@ -54,7 +54,9 @@ PHPClips project
   	* Admins can manage users
   		* Fully access to edit details
   		* Suspend, delete and lock a user
-  	* Admins can delete videos
+  	* Admins can fully manage videos
+		* Delete videos
+		* Edit videos title, description
   	* Admins can manage categories:
   		* delete
   		* add
