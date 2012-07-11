@@ -62,9 +62,6 @@ PHPClips project
   	* Admins can clear cache			
  
  
- 
- 
- 
  Legend
  ==========
  
