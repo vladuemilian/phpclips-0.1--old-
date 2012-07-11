@@ -44,7 +44,7 @@ List of features:
 * A category have:
 	* Title
  	* Description
- 	
+* A category can contain subcategories 	
  	
 3 A page of viewing the video
 ==================
