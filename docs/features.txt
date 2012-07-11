@@ -7,11 +7,16 @@ PHPClips project
  List of features:
  =========
  * A page of viewing the video
+ 	* A section for video rating ( like / dislike )
+	* A section for adding video to favourite
+	* A section for adding video to a specified playlist ( a list with all playlist will be showed on click )
+	* A section for video commenting
+	* A section with other suggested videos
+	* A section with same uploader's videos
+	
  * A page with categories within the videos belongs
  * A page with channels, ordered by relevance
-	* Every user can create his own channel
-	* Every channel will have a rating system based on videos views,
-	  number of subscribers (#TODO), rating by users (#TODO)
+	* Every channel will have a rating system based on videos views, subscribers number and videos rating.
 
  * A page with community
 	* A page with users randomly listed ( or latest registered users )
@@ -27,28 +32,30 @@ PHPClips project
  * Users can login
  	* Each user has a channel
  		* In the channel will be displayed all videos uploaded by user
- 		* #MORE
+ 	* Channels 
+  		* Users can subscribe to others channels
+  		* Subscribed channels videos will appear firstly in /videos 
  	* A user can add a video to favorite
   	* A user can create playlists
   	* Playlists can be:
   		* Public
   		* Private
- 	* #TODO: options on playlists
-  	* A playlist can be shared with other users
+ 	* #TODO: options on playlists ( eg: shuffle )
   	* A user can comment on a video
   	* A user can upload videos via:
   		* embedded via:
   			* youtube
   			* #TODO: other web sites
   		* local from personal computer
-  	* A user can rate videos
+  	* A user can like or dislike a video
   	* A user can change personal details
   		* password
+		* name
+		* email
+		* interests
   	* Users can be administrators - access to the backend of the web site (/admin)
   	
-  * Channels 
-  	* Users can subscribe to others channels
-  	* Subscribed channels videos will appear firstly in /videos 	
+  	
   	
   * Administrator Panel features
   	* Admins can manage users
@@ -61,7 +68,8 @@ PHPClips project
   		* delete
   		* add
   		* edit
-  	* Admins can clear cache			
+  	* Admins can clear cache
+	* Admins can set max size limit for uploaded videos			
  
  
  Legend
