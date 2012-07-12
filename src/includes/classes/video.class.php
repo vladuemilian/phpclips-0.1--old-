@@ -61,7 +61,7 @@ class video {
 	 *				It prevents SQL Injection and Cross Site Scripting (XSS)
 	*/
 	private function sanitize_all(){
-		foreach( get_class_vars($this) as $var => $val )
+		foreach( get_object_vars($this) as $var => $val )
 			$this->$var = mysql_real_escape_string(strip_tags(htmlspecialchars($val,ENT_QUOTES,'UTF-8')));
 	}
 	
