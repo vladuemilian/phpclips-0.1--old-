@@ -56,9 +56,9 @@ class video {
 	/*=======================
 	 * function sanitize_all()
 	 *
-	 * Description: this private method is called in methods like insert() or update()
-	 *				and prepare all class attributes to be inserted in database
-	 *
+	 * Description: This private method is called in methods like insert() or update()
+	 *				and prepare all class attributes to be inserted in database.
+	 *				It prevents SQL Injection and Cross Site Scripting (XSS)
 	*/
 	private function sanitize_all(){
 		foreach( get_class_vars($this) as $var => $val )
@@ -69,7 +69,7 @@ class video {
 	/*===================
 	 * function comments()
 	 *
-	 * Returns: an array with comments objects corresponding to this video
+	 * Returns: an array with comments objects (class Comment) posted to this video
 	 *
 	 * Parameters: none
 	 *
@@ -81,8 +81,16 @@ class video {
 		
 		$q = $mysql->query("SELECT * FROM `videos_comments` WHERE`video_id`='{$this->id}'");
 		if( $q ){
-			while($a = mysql_fetch_object($q) )	
-				$comments[] = $a;
+			while($a = mysql_fetch_object($q) )	{
+				
+				$comment = new Comment;
+				
+				foreach( get_class_vars($a) as $var => $val)
+					$comment->$var = $val;
+				
+				$comments[] = $comment;
+			
+			}
 			return $comments;
 		}
 		else 
