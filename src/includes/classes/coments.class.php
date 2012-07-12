@@ -27,7 +27,7 @@ class Comment {
 	*/
 	private function sanitize_all(){
 		
-		foreach( get_class_vars($this) as $var => $val )
+		foreach( get_object_vars($this) as $var => $val )
 			$this->$var = mysql_real_escape_string(strip_tags(htmlspecialchars($val,ENT_QUOTES,'UTF-8')));
 			
 	}
@@ -61,7 +61,7 @@ class Comment {
 		$this->sanitize_all();
 		//create the query by class attributes
 		//remember that the class attributes are the same with comment table in db
-		foreach( get_class_vars($this) as $var => $val ){
+		foreach( get_object_vars($this) as $var => $val ){
 			if( !empty($val) && $var !='id' ){
 				$insert .= "`$var`,"; 
 				$values .= "'$val',";

@@ -85,7 +85,7 @@ class video {
 				
 				$comment = new Comment;
 				
-				foreach( get_class_vars($a) as $var => $val)
+				foreach( get_object_vars($a) as $var => $val)
 					$comment->$var = $val;
 				
 				$comments[] = $comment;
@@ -124,7 +124,7 @@ class video {
 		global $mysql;
 		$values = ''; $insert = '';
 		
-		foreach( get_class_vars($this) as $var => $val ){
+		foreach( get_object_vars($this) as $var => $val ){
 			if( !empty($val) && $var!='id' ){
 				$values .= "'".mysql_real_escape_string($val)."',";
 				$insert .= "`$var`,";	
