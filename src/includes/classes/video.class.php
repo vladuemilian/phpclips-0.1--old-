@@ -37,12 +37,9 @@ class video {
 	function __construct($id=false){
 		
 		if( $id !== false ){
-		
 			global $mysql;
-			
 			$id = mysql_real_escape_string($id);
 			$q = $mysql->query("SELECT * FROM `videos` WHERE `ID`='$id'");
-			
 			if( $q ){
 				$q = mysql_fetch_assoc($q);
 				foreach($q as $key => $val)
@@ -76,20 +73,15 @@ class video {
 	*/
 	public function comments(){
 		
-		$comments = array();
-		global $mysql;
-		
-		$q = $mysql->query("SELECT * FROM `videos_comments` WHERE`video_id`='{$this->id}'");
+		$comments = array();	
+		global $mysql;		
+		$q = $mysql->query("SELECT * FROM `videos_comments` WHERE`video_id`='{$this->id}'");	
 		if( $q ){
 			while($a = mysql_fetch_assoc($q) )	{
-				
 				$comment = new Comment;
-				
 				foreach( $a as $var => $val)
 					$comment->$var = $val;
-				
 				$comments[] = $comment;
-			
 			}
 			return $comments;
 		}
@@ -119,11 +111,9 @@ class video {
 	*/
 	public function insert(){
 		
-		$this->sanitize_all();
-		
+		$this->sanitize_all();		
 		global $mysql;
 		$values = ''; $insert = '';
-		
 		foreach( get_object_vars($this) as $var => $val ){
 			if( !empty($val) && $var!='id' ){
 				$values .= "'".mysql_real_escape_string($val)."',";
