@@ -81,11 +81,11 @@ class video {
 		
 		$q = $mysql->query("SELECT * FROM `videos_comments` WHERE`video_id`='{$this->id}'");
 		if( $q ){
-			while($a = mysql_fetch_object($q) )	{
+			while($a = mysql_fetch_assoc($q) )	{
 				
 				$comment = new Comment;
 				
-				foreach( get_object_vars($a) as $var => $val)
+				foreach( $a as $var => $val)
 					$comment->$var = $val;
 				
 				$comments[] = $comment;
