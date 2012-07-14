@@ -1,5 +1,4 @@
-Users class and functions - how to use user/member object
-described in some simple examples
+User object documentation
 ==============
 
 
