@@ -53,3 +53,7 @@ User object documentation
 		* false - if there was a problem while mysql select or this custom field doesn't exists
 		
 		
+Notes:
+
+This is an incomplete version of this document		
+		

@@ -347,3 +347,17 @@ CREATE TABLE IF NOT EXISTS `videos_tags_relation` (
 -- Dumping data for table `videos_tags_relation`
 --
 
+
+
+-- Table structure for table `users_meta`
+--
+
+CREATE TABLE IF NOT EXISTS `users_meta` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `index` varchar(255) NOT NULL,
+  `value` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+
+
