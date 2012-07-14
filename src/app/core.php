@@ -6,13 +6,14 @@ session_start(); //starting session
 
 function __autoload($class_name) {
 	if(strpos($class_name,'view_helper')!==false){
-		include VIEW_HELPERS.'/'.$class_name.'.class.php';
+		require_once VIEW_HELPERS.'/'.$class_name.'.class.php';
 	} else {
-    	include CLASSES . $class_name . '.class.php';
+    	require_once CLASSES . $class_name . '.class.php';
 	}
 }
 
 //start monitorising the page load
 $load = new pageLoad;
-$user = new users;
+$user = new members;
+
 $template = new template;

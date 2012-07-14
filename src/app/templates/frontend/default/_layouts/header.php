@@ -36,7 +36,7 @@
 								<li><a href="#" onmouseover="mopen('m1')" onmouseout="mclosetime()">Account</a>
 									<div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()"  style="background-color:#dcdcdc" >
 							
-										<img src="<?php echo $user_data['avatar_link'];?>" width="123" height="110" class="avatar-dropdown-image"/>
+										<img src="<?php echo $avatar_link;?>" width="123" height="110" class="avatar-dropdown-image"/>
 									
 										<a href="<?php echo SITE_URL;?>/user/settings">Settings</a>
 									
