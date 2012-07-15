@@ -9,7 +9,7 @@ class video {
 	 *
 	*/
 	
-	public $id;
+	public $ID;
 	public $category;
 	public $title;
 	public $slug;
@@ -26,48 +26,28 @@ class video {
 	
 	
 	/*========================
-	 * video class constructor
-	 *
+	 * static function find
 	 * Parameters: int $id -> the video id
-	 *
-	 * Description: if the $id parameter is given on class instantiation
-	 *				the object will be fetched with attributes from database
-	 *				where video id is the given parameter
+	 * Returns: a video object corresponding to given id or false if query failed
     */
-	function __construct($id=false){
+	public static function find($id=false){
 		
-		if( $id !== false ){
 			global $mysql;
 			$id = mysql_real_escape_string($id);
 			$q = $mysql->query("SELECT * FROM `videos` WHERE `ID`='$id'");
-			if( $q ){
+			if( $q && mysql_num_rows($q) == 1){
+				$video = new self;
 				$q = mysql_fetch_assoc($q);
 				foreach($q as $key => $val)
-					$this->$key = $val;	
+					$video->$key = $val;	
+				return $video;
 				
-			}
-			
-		}
+			} else return false;
 	}
-	
-	/*=======================
-	 * function sanitize_all()
-	 *
-	 * Description: This private method is called in methods like insert() or update()
-	 *				and prepare all class attributes to be inserted in database.
-	 *				It prevents SQL Injection and Cross Site Scripting (XSS)
-	*/
-	private function sanitize_all(){
-		foreach( get_object_vars($this) as $var => $val )
-			$this->$var = mysql_real_escape_string(strip_tags(htmlspecialchars($val,ENT_QUOTES,'UTF-8')));
-	}
-	
 	
 	/*===================
 	 * function comments()
-	 *
 	 * Returns: an array with comments objects (class Comment) posted to this video
-	 *
 	 * Parameters: none
 	 *
 	*/
@@ -92,7 +72,6 @@ class video {
 	//TODO
 	/*=======================
 	 * function author()
-	 * 
 	 * Returns: an user object corresponding to this video's author
 	*/	
 	
@@ -104,38 +83,42 @@ class video {
 	
 	/*=================
 	 * function insert()
-	 *
 	 * Description: first set all class attributes
 	 * 				than call this method to insert the new video into database
-	 *
 	*/
 	public function insert(){
-		
-		$this->sanitize_all();		
 		global $mysql;
-		$values = ''; $insert = '';
-		foreach( get_object_vars($this) as $var => $val ){
-			if( !empty($val) && $var!='id' ){
-				$values .= "'".mysql_real_escape_string($val)."',";
-				$insert .= "`$var`,";	
-			}
-		}
-		
-		return $mysql->query("INSERT INTO `videos` (".trim($insert,',').") VALUES (".trim($values,',').")");
+		return $mysql->insert(
+			'videos',
+			array(
+				'cat'			=> $this->cat,
+				'title'			=> $this->title,
+				'slug'			=> $this->slug,
+				'desc'			=> $this->desc,
+				'from'			=> $this->from,
+				'filename'		=> $this->filename,
+				'author'		=> $this->author,
+				'relative_path'	=> $this->relative_path,
+				'extension'		=> $this->extension,
+				'embed'			=> $this->embed,
+				'image'			=> $this->image,
+				'views'			=> $this->views,
+				'featured'		=> $this->featured
+			)
+		);
 	}
 		
 	/*========================
 	 * static function delete()
-	 *
 	 * Parameters: $id -> the video's id you want to delete from db
-	 *
-	 * Description: removes a video from database
-	 *
+	 * Description: removes a video from database and file system and also remove its comments
 	*/
 	public static function delete($id){
 		global $mysql;
-		$id = mysql_real_escape_string($id);
-		return $mysql->query("DELETE FROM `videos` WHERE `ID`='$id'");	
+		$mysql->delete('videos', array('ID' => $id));	
+		$mysql->delete('video_comments' , array('video_id' => $id));
+		//TODO
+		//remove video from file system
 	}
 
 	
