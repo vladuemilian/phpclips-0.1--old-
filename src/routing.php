@@ -63,7 +63,7 @@ if($user->is_auth()){
 
 	
 	//user admin panel routing
-	if($user->data['admin']==1){
+	if($user->is_admin()){
 		dispatch('/admin','admin_index');
 		dispatch('/admin/cache','admin_cache');
 		dispatch_post('/admin/cache','admin_cache');
