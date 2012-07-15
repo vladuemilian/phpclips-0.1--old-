@@ -83,7 +83,7 @@ class mysql{
 	private function sanitize($value){
 		return 	(string)mysql_real_escape_string(strip_tags(htmlentities($value,ENT_QUOTES,'UTF-8')));
 	}
-	
+	 
 	/*===================
 	 * function prepare_value()
 	 * Description: this function prepares a value to be inserted in database

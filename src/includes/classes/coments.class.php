@@ -11,7 +11,7 @@ class Comment {
 	public $video_id;
 	public $text;
 	public $time;
-	
+	 
 	/*===============
 	 * function date()
 	 * Parameters: (optionally) string $format -> the date format that will be displayed

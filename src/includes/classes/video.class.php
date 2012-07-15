@@ -1,7 +1,7 @@
 <?php
 
 
-class video {
+class video { 
 	
 	/*
 	 * All class attributes are the same
