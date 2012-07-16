@@ -99,7 +99,7 @@ class mysql{
 				$val[$key] = $this->sanitize($value);
 			return serialize($val);
 		} elseif ( is_object($val) ){
-			foreach(get_object_vars($val) as $var => $value)
+			foreach($val as $var => $value)
 					$val->$var = $this->sanitize($value);
 			return serialize($val);
 		}
